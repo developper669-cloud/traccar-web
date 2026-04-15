@@ -1,0 +1,13 @@
+services:
+  traccar-web:
+    image: ${REGISTRY_URL}/${REGISTRY_IMAGE}:${IMAGE_TAG:-latest}
+    container_name: traccar-web
+    restart: unless-stopped
+    ports:
+      - "3000:80"
+    networks:
+      - traccar-net
+
+networks:
+  traccar-net:
+    external: true
